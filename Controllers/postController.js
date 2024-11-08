@@ -222,7 +222,7 @@ module.exports.updateCommentController = async (req, res) => {
     try {
         const { cid } = req.params;
         const { newComment } = req.body;
-        await Comments.findByIdAndUpdate(cid, { value: newComment });
+        await Comments.findByIdAndUpdate(cid, { value: newComment, edited: true });
         return res.status(200).json({
             success: true,
             message: "Changes saved"
