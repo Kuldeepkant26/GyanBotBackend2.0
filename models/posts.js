@@ -28,9 +28,15 @@ const postSchema = mongoose.Schema({
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Users"
+    },
+    uploadingTime: {
+        type: String,
+        default: new Date().toLocaleDateString('en-GB', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+        }) // e.g., "19-Jun-2024"
     }
-
-
 });
 
 module.exports = mongoose.model('Posts', postSchema);

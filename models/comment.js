@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const commentSchema = new mongoose.Schema({
     owner: {
         type: mongoose.Schema.Types.ObjectId,
@@ -11,7 +12,19 @@ const commentSchema = new mongoose.Schema({
     value: {
         type: String,
         required: true
+    },
+    edited: {
+        type: Boolean,
+        default: false
+    },
+    uploadingTime: {
+        type: String,
+        default: new Date().toLocaleDateString('en-GB', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+        }) // e.g., "19-Jun-2024"
     }
 });
 
-module.exports = mongoose.model('Comments', commentSchema)
+module.exports = mongoose.model('Comments', commentSchema);
