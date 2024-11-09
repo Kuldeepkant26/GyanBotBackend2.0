@@ -161,7 +161,7 @@ module.exports.followController = async (req, res) => {
             await user1.save();
             await user2.save();
 
-            return res.status(200).json({ message: 'Unfollowed successfully' });
+            return res.status(200).json({ success: true, task: 'Unfollow', message: 'Unfollowed successfully' });
         } else {
             // Follow user2
             user1.following.push(u2id);
@@ -170,7 +170,7 @@ module.exports.followController = async (req, res) => {
             await user1.save();
             await user2.save();
 
-            return res.status(200).json({ message: 'Followed successfully' });
+            return res.status(200).json({ success: true, task: 'Follow', message: 'Followed successfully' });
         }
     } catch (error) {
         console.error(error);
