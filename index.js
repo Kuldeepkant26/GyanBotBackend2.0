@@ -13,35 +13,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// const rateLimit = {};
-// app.use((req, res, next) => {
-//     const userIP = req.ip;
 
-//     // Initialize or update request tracking for the user IP
-//     if (!rateLimit[userIP]) {
-//         rateLimit[userIP] = { count: 1, startTime: Date.now() };
-//     } else {
-//         const timeElapsed = Date.now() - rateLimit[userIP].startTime;
-
-//         // Reset count if more than 5 seconds have passed
-//         if (timeElapsed > 5000) {
-//             rateLimit[userIP] = { count: 1, startTime: Date.now() };
-//         } else {
-//             rateLimit[userIP].count += 1;
-//         }
-//     }
-
-//     // Check if the count exceeds 5 requests within the 5-second window
-//     if (rateLimit[userIP].count > 50) {
-//         return res.status(429).json({
-//             success: false,
-//             message: "Too many requests. Please wait and try again."
-//         });
-//     }
-
-//     // Proceed if the request limit has not been exceeded
-//     next();
-// });
 
 const PORT = process.env.PORT || 8080;
 
