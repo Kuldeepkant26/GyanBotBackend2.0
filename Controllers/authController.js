@@ -59,7 +59,7 @@ module.exports.Logincontroller = async (req, res) => {
         })
     }
 
-    let user = await Users.findOne({ email });
+    let user = await Users.findOne({ email }).populate('notifications');
     if (!user) {
         return res.status(400).json({
             success: false,
@@ -123,7 +123,7 @@ module.exports.GetUserControllerB = async (req, res) => {
                         path: 'likes'
                     }
                 ]
-            }).populate('followers').populate('following');
+            }).populate('followers').populate('following').populate('notifications');
         res.status(200).json({
             success: true,
             message: "User fetched",

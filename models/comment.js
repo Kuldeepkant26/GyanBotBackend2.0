@@ -22,9 +22,11 @@ const commentSchema = new mongoose.Schema({
         default: new Date().toLocaleDateString('en-GB', {
             day: '2-digit',
             month: 'short',
-            year: 'numeric'
-        }) // e.g., "19-Jun-2024"
+            year: 'numeric',
+            timeZone: 'Asia/Kolkata' // Explicitly set the time zone to IST
+        })
     }
+
 });
 
 module.exports = mongoose.model('Comments', commentSchema);

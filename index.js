@@ -5,6 +5,7 @@ const app = express();
 
 const authroute = require('./Routes/auth')
 const postsroute = require('./Routes/posts')
+const notifyroute = require('./Routes/notify')
 
 require('dotenv').config();
 app.use(cors());
@@ -64,6 +65,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authroute);
 app.use('/posts', postsroute);
+app.use('/notify', notifyroute)
 
 app.listen(PORT, () => {
     console.log(`App is listening on port ${PORT}`);
